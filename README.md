@@ -1,12 +1,12 @@
 # Stock_Ticker_Monitoring
-This project is to monitor stock ticker symbols in yahoo finance
+This project is to monitor stock ticker symbols in yahoo finance.
 
-## Database requirements 
-In order to deploy the project, following are required 
+## Database requirements:
+In order to deploy the project, following are required,
 a. mysql:latest 
 b. redis
 
-## Important Note
+## Important note:
 Please use a gmail account with app password created. Create an app password for the project and add account details along with app password to .env
 
 
