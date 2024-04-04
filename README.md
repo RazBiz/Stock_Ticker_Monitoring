@@ -1,12 +1,16 @@
 # Stock_Ticker_Monitoring
 This project is to monitor stock ticker symbols in yahoo finance
 
-Important Note: please use a gmail account with app password created. Create an app password for the project and add account details along with app password to .env
+## Database requirements 
+In order to deploy the project, following are required 
+a. mysql:latest 
+b. redis
 
-In order to deploy the project, following are required a. mysql:latest b. redis
+## Important Note
+Please use a gmail account with app password created. Create an app password for the project and add account details along with app password to .env
 
-#To run:
 
+## To run:
 create .env variable with respective server/password details.
 in SQL create database stock_ticker
 create python 3.9 environment
