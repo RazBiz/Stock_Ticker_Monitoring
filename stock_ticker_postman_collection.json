@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "8f8a9bc5-fcd3-4d2b-8280-ad8024e1f138",
+		"name": "Stock_Ticker_Project",
+		"description": "end points for stock ticker POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25414253"
+	},
+	"item": [
+		{
+			"name": "add job",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"job_type\": \"inventory\",\n    \"interval\": 5,\n    \"email_address\": \"test.email\",\n    \"stock_ticker_symbol\": \"TSLA\",\n    \"stock_name\": \"test stock\",\n    \"description\": \"test description\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/add_job",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"add_job"
+					]
+				},
+				"description": "to add inventory job (stock ticker job - data collection): (if interval not set, default is 15 minutes)\n\n{  \n\"job_type\": \"inventory\",  \n\"interval\": 15,  \n\"stock_ticker_symbol\": \"TSLA\",  \n\"stock_name\": \"test stock\",  \n\"description\": \"test description\"  \n}\n\nto add daily summary email job: (if interval not set, default is 1 day - 24 hours)\n\n{  \n\"job_type\": \"inventory\",\n\n\"interval\": 20,  \n\"email_address\": \"[test@gmail.com](mailto:test@gmail.com)\"  \n}"
+			},
+			"response": []
+		},
+		{
+			"name": "remove scheduled job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"job_type\": \"inventory\",\n    \"term\": \"email or ticker symbol\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/remove_scheduled_job",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"remove_scheduled_job"
+					]
+				},
+				"description": "to remove email job:\n\n{\n\n\"job_type\": \"dailyemail\",\n\n\"term\" : \"[test@gmail.com](mailto:test@gmail.com)\"\n\n}\n\nto temove ticker job:\n\n{\n\n\"job_type\": \"inventory\",\n\n\"term\" : \"TSLA\"\n\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "list current stock jobs with latest market stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/list_current_stock_jobs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"list_current_stock_jobs"
+					]
+				},
+				"description": "lists all currently active stock collection jobs with its current market stats"
+			},
+			"response": []
+		},
+		{
+			"name": "update ticker info",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"stock_name\": \"tesla stock name\",\n    \"description\": \"tesla description\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/update_ticker_details/<ticker_id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"update_ticker_details",
+						"<ticker_id>"
+					]
+				},
+				"description": "updates ticker information in db"
+			},
+			"response": []
+		},
+		{
+			"name": "retreive single stock latest data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/single_stock_data/<ticker_id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"single_stock_data",
+						"<ticker_id>"
+					]
+				},
+				"description": "get all data for a ticker id"
+			},
+			"response": []
+		},
+		{
+			"name": "list all tickers info",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/list_all_tickers_info",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"list_all_tickers_info"
+					]
+				},
+				"description": "list all ticker info stored in system"
+			},
+			"response": []
+		},
+		{
+			"name": "list all active jobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/list_all_active_jobs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"list_all_active_jobs"
+					]
+				},
+				"description": "list all currently active jobs"
+			},
+			"response": []
+		}
+	]
+}
