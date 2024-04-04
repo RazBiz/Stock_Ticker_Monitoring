@@ -5,7 +5,7 @@ Important Note: please use a gmail account with app password created. Create an 
 
 In order to deploy the project, following are required a. mysql:latest b. redis
 
-To run:
+#To run:
 
 create .env variable with respective server/password details.
 in SQL create database stock_ticker
